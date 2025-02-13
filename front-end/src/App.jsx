@@ -5,26 +5,9 @@ import { fetchCartData } from "./redux/slices/cartSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { PrimeReactProvider, PrimeReactContext } from "primereact/api";
 
-// import AddresForm from "./components/Form/AddressForm";
-// import ChangPasswordForm from "./components/Form/ChangePasswordForm";
-// import OdersForm from "./components/Form/OdersForm";
-// import PersonalInformationForm from "./components/Form/PersonalInformationForm";
-// import CartLayout from "./layout/CartLayout";
+
 import Layout from "./layout/Layout";
-// import ScrollToTop from "./components/ScrollToTop";
-// import CartPage from "./pages/CartPage";
-// import ContactPage from "./pages/ContactPage";
-// import HomePage from "./pages/HomePage";
-// import LoginPage from "./pages/LoginPage";
-// import NotFoundPage from "./pages/NotFoundPage";
-// import ProductDetailPage from "./pages/ProductDetailPage";
-// import ProductListPage from "./pages/ProductListPage";
-// import SearchPage from "./pages/SearchPage";
-// import UserProfilePage from "./pages/UserProfilePage";
-// import CategoryPage from "./pages/CategoryPage";
-// import RequireAuth from "./utils/requireAuth";
-// import PaymentSuccessPage from "./pages/PaymentSuccessPage";
-// import PaymentCancelPage from "./pages/PaymentCancelPage";
+
 import Loading from "./components/Loading";
 // Lazy load components
 const AddressForm = lazy(() => import("./components/Form/AddressForm"));
