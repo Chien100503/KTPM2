@@ -1,0 +1,40 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./front-end
+      dockerfile: Dockerfile
+    ports:
+      - "5174:5174"
+    networks:
+      - app-network
+
+  backend:
+    build:
+      context: ./nodejs-back-end
+      dockerfile: Dockerfile
+    ports:
+      - "4000:4000"
+    environment:
+      - NODE_ENV=development
+      - MONGO_URI=mongodb://mongo:27017/your_database_name  # Thêm biến môi trường để backend kết nối với MongoDB
+    depends_on:
+      - mongo  # Đảm bảo backend khởi động sau MongoDB
+    networks:
+      - app-network
+
+  mongo:
+    image: mongo:latest  # Sử dụng image MongoDB chính thức
+    ports:
+      - "27017:27017"  # Mở cổng MongoDB ra ngoài
+    networks:
+      - app-network
+    volumes:
+      - mongo-data:/data/db  # Đảm bảo dữ liệu MongoDB được lưu trữ lâu dài
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  mongo-data:  # Tạo volume lưu trữ dữ liệu MongoDB
